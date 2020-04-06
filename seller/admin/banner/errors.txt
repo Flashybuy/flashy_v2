@@ -1,0 +1,15 @@
+http://localhost/flashybuy/seller/view_log.php(done log)
+
+heading 
+description
+remove from crousel
+Date check
+days check
+
+7 Banners
+Primary and secondry image on banner form
+primary url
+sec url
+days check
+date check
+
