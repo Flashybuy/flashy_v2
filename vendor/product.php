@@ -55,9 +55,24 @@
 													</tr>
 												</thead>
 												<tbody>
+<?php   
+
+					$sql = 	"SELECT P.*,PV.first_variation_value,PV.first_variation_name,PV.second_variation_value,PV.price,PV.quantity,PV.sku,				PVS.variation_value,PVS.image1,PVS.image2,PVS.image3,PVS.image4  FROM products AS P 
+
+                    			INNER JOIN product_variations AS PV ON PV.product_id = P.product_id
+                    			INNER JOIN product_variant_images AS PVS ON PV.product_id = PVS.product_id
+                    
+                    			WHERE P.product_id = PV.product_id
+                    			AND P.product_id = PVS.product_id";
+        			$query = mysqli_query($con,$sql);
+ $i=1; 
+ while($res = mysqli_fetch_array($query)) {
+        				
+
+        										?>
 													<tr>
-														<th>1</th>
-														<td>Snow Bike 20 inch 21 speed double disc mountain Fat Bicycles</td>
+														<th><?php echo $i++; ?></th>
+														<td><img src="<?php echo "200_".$res['image1'];?>"> <?php echo $res['name'];?></td>
 														<td>12</td>
 														<td>582.93</td>
 														<td>3</td>
@@ -75,7 +90,7 @@
                                                                     </div>
                                                         </td>
 													</tr>
-													
+												<?php } ?>
 												</tbody>
 											</table>
 										</div>
